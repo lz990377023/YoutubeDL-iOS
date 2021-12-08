@@ -135,9 +135,9 @@ open class YoutubeDL: NSObject {
     
     public let version: String?
     
-    internal let pythonObject: PythonObject
+    public let pythonObject: PythonObject
 
-    internal let options: PythonObject
+    public let options: PythonObject
     
     public init(options: PythonObject = defaultOptions) throws {
         guard FileManager.default.fileExists(atPath: Self.pythonModuleURL.path) else {
