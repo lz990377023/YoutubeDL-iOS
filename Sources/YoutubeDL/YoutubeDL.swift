@@ -179,7 +179,6 @@ open class YoutubeDL: NSObject {
     open func extractInfo(url: URL) throws -> ([Format], Info?) {
         print(#function, url)
         let info = try pythonObject.extract_info.throwing.dynamicallyCall(withKeywordArguments: ["": url.absoluteString, "download": false, "process": true])
-        
         let format_selector = pythonObject.build_format_selector(options["format"])
         let formats_to_download = format_selector(info)
         var formats: [Format] = []
